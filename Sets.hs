@@ -6,4 +6,4 @@ import Numbers
 
 power_set :: [a] -> [[a]]
 power_set [] = [[]]
-power_set set = finite_subsets (tail set) ++ map ((head set):) (finite_subsets (tail set))
+power_set set = power_set (tail set) ++ map ((head set):) (power_set (tail set))
