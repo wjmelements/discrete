@@ -1,4 +1,4 @@
-module Numbers.Primes
+module Primes
 ( divides
 , factor
 , prime

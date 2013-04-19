@@ -1,4 +1,4 @@
 all:
 	
 run:
-	ghci Primes.hs
+	ghci main.hs
