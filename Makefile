@@ -1,4 +1,4 @@
 all:
 	
 run:
-	ghci main.hs
+	ghci Main.hs

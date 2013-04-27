@@ -2,6 +2,9 @@ module Sets
 ( subset
 , subsets
 , power_set
+, intersect
+, difference
+, union
 ) where
 
 import Numbers
@@ -21,3 +24,13 @@ subset part whole = elem (head part) whole && subset (tail part) whole
 
 power_set :: [a] -> [[a]]
 power_set = subsets
+
+intersect :: Eq a => [a] -> [a] -> [a]
+intersect one two = [member | member <- two, elem member one]
+
+difference :: Eq a => [a] -> [a] -> [a]
+difference one two = [member | member <- one, not $ elem member two]
+
+union :: Eq a => [a] -> [a] -> [a]
+union [] two = two
+union one two = let member = head one in member : union (tail one) (filter (member /=) two)
