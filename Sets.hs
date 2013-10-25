@@ -36,4 +36,4 @@ union :: Eq a => [a] -> [a] -> [a]
 union one two = one ++ filter (flip notElem one) two
 
 unions :: Eq a => [[a]] -> [a]
-unions = foldl union []
+unions = foldr union []
