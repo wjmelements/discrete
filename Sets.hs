@@ -5,6 +5,7 @@ module Sets
 , intersect
 , difference
 , union
+, unions
 ) where
 
 import Numbers
@@ -32,5 +33,7 @@ difference :: Eq a => [a] -> [a] -> [a]
 difference one two = [member | member <- one, not $ elem member two]
 
 union :: Eq a => [a] -> [a] -> [a]
-union [] two = two
-union one two = let member = head one in member : union (tail one) (filter (member /=) two)
+union one two = one ++ filter (flip notElem one) two
+
+unions :: Eq a => [[a]] -> [a]
+unions = foldl union []
